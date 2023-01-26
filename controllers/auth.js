@@ -196,8 +196,8 @@ exports.signin = async (req, res) => {
     res.cookie("token", token, { expire: new Date() + 100 })
 
     // Send response to front end
-    const { _id, name, email, role } = user
-    return res.json({token, user: { _id, name, email, role }})
+    const { _id, name, email, role, firstname, lastname } = user
+    return res.json({token, user: { _id, name, email, role, firstname, lastname }})
   })
     //  res.json({
     //    success: true
