@@ -90,7 +90,7 @@ exports.signup = (req, res) => {
   // Check whether email already exists
   const {email} = req.body
   User.findOne({email: email}, async (err, email) => {
-    if(err || !email) {
+    if(err || email) {
       console.log(err);
       return res.status(403).json({
         error: err
