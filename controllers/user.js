@@ -68,10 +68,21 @@ exports.updateUser = async (req,res,next) =>{
       });
      
       if(user){
-      res.status(201).json({
+        const { _id,email, role, firstname, lastname, campus, gender } = user
+        
+     return res.status(201).json({
           success: true,
           msg:"Successfully Updated",
-          data: user
+          data: {
+            _id,
+            role,
+            email,
+            firstname,
+            lastname,
+            campus,
+            gender
+    
+          }
       });
 
     }else{
